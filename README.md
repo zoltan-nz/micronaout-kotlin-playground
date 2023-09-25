@@ -26,6 +26,13 @@ Create app
 mn create-app example.micronaut.mironautguide --build=gradle_kotlin --lang=kotlin
 ```
 
+For Java 21, need Gradle 8.4 (RC1).
+
+```
+sdk install gradle 8.4-rc-1 
+```
+
+
 
 ## Kubernetes
 
@@ -40,3 +47,4 @@ minikube addons enable metrics-server
 ```
 minikube dashboard
 ```
+

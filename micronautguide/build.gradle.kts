@@ -1,10 +1,10 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.8.22"
-    id("org.jetbrains.kotlin.plugin.allopen") version "1.8.22"
-    id("com.google.devtools.ksp") version "1.8.22-1.0.11"
+    id("org.jetbrains.kotlin.jvm") version "1.9.0"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.9.0"
+    id("com.google.devtools.ksp") version "1.9.0"
     id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("io.micronaut.application") version "4.0.3"
-    id("io.micronaut.aot") version "4.0.3"
+    id("io.micronaut.application") version "4.1.6"
+    id("io.micronaut.aot") version "4.1.6"
 }
 
 version = "0.1"
@@ -31,7 +31,7 @@ application {
     mainClass.set("example.micronaut.ApplicationKt")
 }
 java {
-    sourceCompatibility = JavaVersion.toVersion("17")
+    sourceCompatibility = JavaVersion.toVersion("21")
 }
 
 tasks {
