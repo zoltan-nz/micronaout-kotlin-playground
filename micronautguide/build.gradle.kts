@@ -49,7 +49,7 @@ tasks {
 graalvmNative.toolchainDetection.set(false)
 micronaut {
     runtime("netty")
-    testRuntime("junit5")
+    testRuntime("kotest5")
     processing {
         incremental(true)
         annotations("example.micronaut.*")
