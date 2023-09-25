@@ -21,3 +21,22 @@ sdk install micronaut
 ```
 
 Create app
+
+```
+mn create-app example.micronaut.mironautguide --build=gradle_kotlin --lang=kotlin
+```
+
+
+## Kubernetes
+
+```
+minikube start
+```
+
+```
+minikube addons enable metrics-server
+```
+
+```
+minikube dashboard
+```
