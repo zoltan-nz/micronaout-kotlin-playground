@@ -1,4 +1,4 @@
-# micronaout-kotlin-playground
+# micronaut-kotlin-playground
 
 ## Log
 

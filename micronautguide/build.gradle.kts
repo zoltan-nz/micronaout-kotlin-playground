@@ -1,16 +1,16 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.9.0"
-    id("org.jetbrains.kotlin.plugin.allopen") version "1.9.0"
-    id("com.google.devtools.ksp") version "1.9.0"
+    id("org.jetbrains.kotlin.jvm") version "1.9.10"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.9.10"
+    id("com.google.devtools.ksp") version "1.9.10-1.0.13"
     id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("io.micronaut.application") version "4.1.6"
-    id("io.micronaut.aot") version "4.1.6"
+    id("io.micronaut.application") version "4.1.1"
+    id("io.micronaut.aot") version "4.1.1"
 }
 
 version = "0.1"
 group = "example.micronaut"
 
-val kotlinVersion=project.properties.get("kotlinVersion")
+val kotlinVersion = project.properties.get("kotlinVersion")
 repositories {
     mavenCentral()
 }
@@ -31,7 +31,10 @@ application {
     mainClass.set("example.micronaut.ApplicationKt")
 }
 java {
-    sourceCompatibility = JavaVersion.toVersion("21")
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+        vendor = JvmVendorSpec.GRAAL_VM
+    }
 }
 
 tasks {
@@ -46,7 +49,7 @@ tasks {
         }
     }
 }
-graalvmNative.toolchainDetection.set(false)
+graalvmNative.toolchainDetection.set(true)
 micronaut {
     runtime("netty")
     testRuntime("kotest5")
@@ -55,8 +58,8 @@ micronaut {
         annotations("example.micronaut.*")
     }
     aot {
-    // Please review carefully the optimizations enabled below
-    // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
+        // Please review carefully the optimizations enabled below
+        // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
         optimizeServiceLoading.set(false)
         convertYamlToJava.set(false)
         precomputeOperations.set(true)
